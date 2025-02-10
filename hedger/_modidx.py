@@ -5,4 +5,4 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://fleclerc.github.io',
                 'git_url': 'https://github.com/fleclerc/hedger',
                 'lib_path': 'hedger'},
-  'syms': {'hedger.core': {'hedger.core.foo': ('core.html#foo', 'hedger/core.py')}}}
+  'syms': {'hedger.core': {'hedger.core.foo': ('core.html#foo', 'hedger/core.py')}, 'hedger.hedgerprep': {}}}
