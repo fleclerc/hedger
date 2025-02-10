@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "hedger"
+  site-url: "https://fleclerc.github.io/hedger"
+  description: ""
+  repo-branch: main
+  repo-url: "https://github.com/fleclerc/hedger"
