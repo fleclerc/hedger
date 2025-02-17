@@ -46,10 +46,17 @@ else:
 
 # %% ../nbs/00-hedgerprep.ipynb 6
 def load_data(date):
-    if rows_to_load > 0:
-        df = pd.read_csv(data_dir / f"xnas-itch-{date}.mbp-10.csv", nrows=rows_to_load)
+    file_path = data_dir / f"xnas-itch-{date}.mbp-10.csv"
+    if not file_path.exists():
+        file_path = data_dir / f"xnas-itch-{date}.mbp-10.csv.gz"
+        if file_path.exists():
+            with gzip.open(file_path, 'rb') as f:
+                decompressed_data = f.read()
+            df = pd.read_csv(io.BytesIO(decompressed_data), nrows=rows_to_load if rows_to_load > 0 else None)
+        else:
+            raise FileNotFoundError(f"Neither {file_path} nor its .gz version exists.")
     else:
-        df = pd.read_csv(data_dir / f"xnas-itch-{date}.mbp-10.csv")
+        df = pd.read_csv(file_path, nrows=rows_to_load if rows_to_load > 0 else None)
     return df
 
 # %% ../nbs/00-hedgerprep.ipynb 9
@@ -219,6 +226,15 @@ print("here")
 # Iterate over files matching the pattern
 for file_path in directory.glob(pattern):
     print(file_path)
+
+    def gunzip_in_memory(input_data):
+        with gzip.GzipFile(fileobj=io.BytesIO(input_data)) as f:
+            return f.read()
+
+    # Example usage
+    with open('example.gz', 'rb') as f:
+        compressed_data = f.read()
+
 
     # Extract the date from the file name
     date_str = file_path.name[10:18]
