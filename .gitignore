@@ -1,3 +1,5 @@
+market
+
 _docs/
 _proc/
 
@@ -150,3 +152,4 @@ checklink/cookies.txt
 
 # Quarto
 .quarto
+market/condition.json
