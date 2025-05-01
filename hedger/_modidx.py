@@ -22,4 +22,7 @@ d = { 'settings': { 'branch': 'main',
                                    'hedger.hedgerprep.drop_na': ('00-hedgerprep.html#drop_na', 'hedger/hedgerprep.py'),
                                    'hedger.hedgerprep.is_notebook': ('00-hedgerprep.html#is_notebook', 'hedger/hedgerprep.py'),
                                    'hedger.hedgerprep.load_data': ('00-hedgerprep.html#load_data', 'hedger/hedgerprep.py'),
+                                   'hedger.hedgerprep.process_bento_file': ( '00-hedgerprep.html#process_bento_file',
+                                                                             'hedger/hedgerprep.py'),
+                                   'hedger.hedgerprep.process_csv': ('00-hedgerprep.html#process_csv', 'hedger/hedgerprep.py'),
                                    'hedger.hedgerprep.split_buy_sell': ('00-hedgerprep.html#split_buy_sell', 'hedger/hedgerprep.py')}}}
